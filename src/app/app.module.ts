@@ -6,10 +6,19 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './modules/core/core.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HomeModule } from './modules/home/home.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { ClientsModule } from './modules/clients/clients.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, CoreModule, AppRoutingModule, HomeModule],
+  imports: [
+    BrowserModule,
+    CoreModule,
+    AppRoutingModule,
+    HomeModule,
+    AuthModule,
+    ClientsModule,
+  ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
