@@ -2,9 +2,9 @@
   "users": [
     {
       "id": 1,
-      "email": "John Doe",
-      "password": "abc@abc.com",
-      "username": "john"
+      "email": "test@test.com",
+      "password": "test",
+      "username": "test"
     }
   ],
   "clients": [
