@@ -2,7 +2,13 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, map, tap } from 'rxjs';
-import { GetUserResponse, User, UserLoginData } from '../models/user.model';
+import {
+  GetUserResponse,
+  PostUser,
+  PostUsersResponse,
+  User,
+  UserLoginData,
+} from '../models/user.model';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -66,5 +72,9 @@ export class AuthService {
     localStorage.setItem('user', JSON.stringify(user));
 
     this.router.navigate(['/klienci']);
+  }
+
+  register(userData: PostUser): Observable<PostUsersResponse> {
+    return this.http.post<PostUsersResponse>(`${this.apiUrl}/users`, userData);
   }
 }

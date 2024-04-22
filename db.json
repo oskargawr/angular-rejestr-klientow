@@ -5,6 +5,36 @@
       "email": "test@test.com",
       "password": "test",
       "username": "test"
+    },
+    {
+      "email": "test1@test.com",
+      "username": "oskargawr",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "email": "test1@test.com",
+      "username": "oskargawr",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "email": "test1@test.com",
+      "username": "oskargawr",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "email": "test1@test.com",
+      "username": "oskargawr",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "email": "a@gmail.com",
+      "username": "andrew",
+      "password": "123",
+      "id": 6
     }
   ],
   "clients": [
