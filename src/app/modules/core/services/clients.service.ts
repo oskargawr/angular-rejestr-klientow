@@ -22,18 +22,21 @@ export class ClientsService {
     itemsPerPage: number,
     sortDirection: string,
     sortColumnName: string,
+    value = '',
   ): Observable<GetClientsResponse> {
-    let params;
+    let params = new HttpParams()
+      .append('_page', pageIndex)
+      .append('_limit', itemsPerPage);
+
     if (sortColumnName) {
-      params = new HttpParams()
-        .append('_page', pageIndex)
-        .append('_limit', itemsPerPage)
+      params = params
         .append('_sort', sortColumnName)
         .append('_order', sortDirection);
-    } else {
-      params = new HttpParams()
-        .append('_page', pageIndex)
-        .append('_limit', itemsPerPage);
+    }
+
+    if (value) {
+      // params = params.append('q', value);
+      params = params.append('firstname_like', value);
     }
     return this.http
       .get<ClientResponse[]>(`${this.apiUrl}/clients`, {
@@ -66,6 +69,17 @@ export class ClientsService {
       );
   }
 
+  getClient(id: number): Observable<Client> {
+    return this.http
+      .get<ClientResponse>(`${this.apiUrl}/clients/${id}`)
+      .pipe(
+        map(
+          ({ id, firstname, surname, email, phone, address, postcode }) =>
+            new Client(id, firstname, surname, email, phone, address, postcode),
+        ),
+      );
+  }
+
   postClient(clientData: PostClient): Observable<Client> {
     return this.http
       .post<ClientResponse>(`${this.apiUrl}/clients`, clientData)
@@ -75,5 +89,11 @@ export class ClientsService {
             new Client(id, firstname, surname, email, phone, address, postcode),
         ),
       );
+  }
+
+  deleteClient(id: number): Observable<Record<string, never>> {
+    return this.http.delete<Record<string, never>>(
+      `${this.apiUrl}/clients/${id}`,
+    );
   }
 }

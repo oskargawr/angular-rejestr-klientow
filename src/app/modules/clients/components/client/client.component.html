@@ -1,0 +1,32 @@
+<div *ngIf="client" class="container mt-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-info text-white">
+      <h2 class="mb-0">Dane klienta:</h2>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Usun klienta</p>
+      <button mat-raised-button color="warn" (click)="openDialog()">
+        Usuń
+      </button>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        <strong>Imię i nazwisko:</strong>
+
+        {{ client.firstname }} {{ client.surname }}
+      </p>
+      <p class="card-text">
+        <strong>Adres email:</strong>
+        {{ client.email }}
+      </p>
+      <p class="card-text">
+        <strong>Numer telefonu:</strong>
+        {{ client.phone }}
+      </p>
+      <p class="card-text">
+        <strong>Adres:</strong>
+        {{ client.address }}
+      </p>
+    </div>
+  </div>
+</div>
