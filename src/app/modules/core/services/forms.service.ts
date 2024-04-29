@@ -20,6 +20,9 @@ export class FormsService {
       return 'Wpisales za duzo znakow';
     }
 
+    if (control.hasError('invalidPostcode')) {
+      return 'Nieprawidlowy kod pocztowy';
+    }
     return control.hasError('email') ? 'Nieprawidlowy adres email' : '';
   }
 }
